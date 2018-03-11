@@ -2,6 +2,7 @@ import './blogs.json';
 import React, { Component } from 'react';
 import { Jumbotron,Button } from 'react-bootstrap';
 import fetch from 'isomorphic-fetch';
+import BlogPost from './BlogPost';
 const blogData = require('./blogs.json');
 
 export default class BlogMaster extends Component {
@@ -11,7 +12,7 @@ export default class BlogMaster extends Component {
       blogList: []
     };
   }
-  
+
   componentWillMount() {
         this.setState({
           blogList: blogData
@@ -19,14 +20,16 @@ export default class BlogMaster extends Component {
   }  
    
   render() {
-    console.log(this.state.blogList);
     return (
         <div>
         <Jumbotron>
         <h1>My Blog!</h1>
-        <p>
-          <Button bsStyle="primary">Learn more</Button>
-        </p>
+            {
+              <BlogPost/>
+            }
+            {
+              <BlogPost/>
+            }
       </Jumbotron>
       </div>
     );
