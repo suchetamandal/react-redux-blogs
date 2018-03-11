@@ -23,19 +23,19 @@ export default class BlogPost extends Component {
 
     delete = () => {
         confirmAlert({
-            customUI: ({ onClose }) => {
-              return (
-                <div className='custom-ui'>
-                  <h1>Are you sure you want to delete this thingy?</h1>
-                  <button onClick={onClose}>Cancel</button>
-                  <button onClick={() => {
-                      this.handleClickDelete()
-                      onClose()
-                  }}>Delete</button>
-                </div>
-              )
-            }
-          })
+                title: 'Confirm to submit',
+                message: 'Are you sure to do this.',
+                buttons: [
+                  {
+                    label: 'Cancel',
+                    onClick: () => {this.close}
+                  },
+                  {
+                    label: 'Delete',
+                    onClick: () => {this.close}
+                  }
+                ] 
+            })
       };
 
     render() {
