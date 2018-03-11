@@ -3,6 +3,7 @@ import { Jumbotron,Button,ButtonToolbar} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css'
+import './styles.css';
 
 const divStyle = {
     margin: '40px',
@@ -22,19 +23,19 @@ export default class BlogPost extends Component {
 
     delete = () => {
         confirmAlert({
-          title: 'Delete It?',
-          message: 'Are you sure you want to delete this thingy',
-          buttons: [
-            {
-              label: 'OK',
-              onClick: () => alert('Click Yes')
-            },
-            {
-              label: 'Cancel',
-              onClick: () => alert('Click No')
+            customUI: ({ onClose }) => {
+              return (
+                <div className='custom-ui'>
+                  <h1>Are you sure you want to delete this thingy?</h1>
+                  <button onClick={onClose}>Cancel</button>
+                  <button onClick={() => {
+                      this.handleClickDelete()
+                      onClose()
+                  }}>Delete</button>
+                </div>
+              )
             }
-          ]
-        })
+          })
       };
 
     render() {

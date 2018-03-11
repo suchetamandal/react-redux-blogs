@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Jumbotron,Button,ButtonToolbar, FormGroup,FormControl, ControlLabel} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+const blogData = require('./blogs.json');
 
 export default class BlogEdit extends Component {
     constructor(props) {
       super(props);
       this.handleChange = this.handleChange.bind(this);
       this.state = {
-        desc: 'Now Testing Initial'
+        desc: ''
       };
     }
   
