@@ -17,6 +17,8 @@ export default class BlogEdit extends Component {
   
     render() {
       return (
+        <div>
+          <Jumbotron>
         <form>
             <ControlLabel>Testing Title of Blog</ControlLabel>
             <FormControl
@@ -32,6 +34,8 @@ export default class BlogEdit extends Component {
             </Link>  
           </ButtonToolbar>
         </form>
+        </Jumbotron>
+        </div>
       );
     }
 }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Jumbotron,Button,ButtonToolbar} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import './index.css';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css'
 
