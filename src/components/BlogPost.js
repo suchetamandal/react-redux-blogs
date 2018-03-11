@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Jumbotron,Button,ButtonToolbar,Modal} from 'react-bootstrap';
+import { Jumbotron,Button,ButtonToolbar} from 'react-bootstrap';
 import './index.css';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css'
@@ -9,11 +9,11 @@ const divStyle = {
     padding :'10px',
     backgroundColor : 'white',
     borderRadius: '5px'
-  };
+};
 
-  const titleStyle = {
+const titleStyle = {
     margin: '40px'
-  };
+};
 
 export default class BlogPost extends Component {
     constructor(props, context) {
@@ -22,15 +22,15 @@ export default class BlogPost extends Component {
 
     delete = () => {
         confirmAlert({
-          title: 'Confirm to Delete this post',
-          message: 'Are you sure to do this.',
+          title: 'Delete It?',
+          message: 'Are you sure you want to delete this thingy',
           buttons: [
             {
-              label: 'Yes',
+              label: 'OK',
               onClick: () => alert('Click Yes')
             },
             {
-              label: 'No',
+              label: 'Cancel',
               onClick: () => alert('Click No')
             }
           ]
@@ -38,7 +38,6 @@ export default class BlogPost extends Component {
       };
 
     render() {
-        console.log('Rendering again');
         return (
             <div>
                 <h3 style={titleStyle}>{this.props.blog.title}</h3>

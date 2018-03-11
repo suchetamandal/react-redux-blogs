@@ -17,16 +17,21 @@ export default class BlogMaster extends Component {
         this.setState({
           blogList: blogData
         });
-  }  
-   
+  } 
+  
   render() {
     return (
         <div>
         <Jumbotron>
         <h1>My Blog!</h1>
-            {
-              <BlogPost blog={this.state.blogList[0]}/>
-            }
+        {(this.state.blogList && this.state.blogList.length>1
+          && 
+          <div>
+            {this.state.blogList.map((blog) => (
+              <BlogPost blog={blog}/>
+            ))}
+          </div>    
+        )}
       </Jumbotron>
       </div>
     );
