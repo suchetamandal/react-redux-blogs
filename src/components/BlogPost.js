@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Jumbotron,Button,ButtonToolbar} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './index.css';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css'
@@ -44,7 +45,9 @@ export default class BlogPost extends Component {
                 <div class="well" style={divStyle}>
                     <p>{this.props.blog.desc}</p>
                     <ButtonToolbar>
-                        <Button bsStyle="primary">Edit</Button>
+                        <Link to ={`/blogs/${this.props.blog.title}`}>
+                            <Button bsStyle="primary">Edit</Button>
+                        </Link>    
                         <Button bsStyle="danger" onClick={this.delete}>Delete</Button>
                     </ButtonToolbar>
               </div>

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { Jumbotron,Button,ButtonToolbar, FormGroup, ControlLabel} from 'react-bootstrap';
+import { Jumbotron,Button,ButtonToolbar, FormGroup,FormControl, ControlLabel} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export default class BlogEdit extends Component {
-    constructor(props, context) {
-      super(props, context);
+    constructor(props) {
+      super(props);
       this.handleChange = this.handleChange.bind(this);
       this.state = {
-        desc: this.props.blog.desc
+        desc: 'Now Testing Initial'
       };
     }
   
@@ -17,19 +18,19 @@ export default class BlogEdit extends Component {
     render() {
       return (
         <form>
-          <FormGroup
-            controlId="formBasicText"
-            validationState={this.getValidationState()}
-          >
-            <ControlLabel>{this.props.blog.title}</ControlLabel>
+            <ControlLabel>Testing Title of Blog</ControlLabel>
             <FormControl
               type="text"
-              value= {this.state.desc}
+              value= 'Ha ha ha '
               placeholder="Edit Blog Description"
               onChange={this.handleChange}
             />
-            <FormControl.Feedback />
-          </FormGroup>
+          <ButtonToolbar>
+            <Button bsStyle="primary">Cancel</Button>   
+            <Link to="/">
+              <Button bsStyle="danger">Save</Button>
+            </Link>  
+          </ButtonToolbar>
         </form>
       );
     }
