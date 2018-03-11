@@ -25,10 +25,7 @@ export default class BlogMaster extends Component {
         <Jumbotron>
         <h1>My Blog!</h1>
             {
-              <BlogPost/>
-            }
-            {
-              <BlogPost/>
+              <BlogPost blog={this.state.blogList[0]}/>
             }
       </Jumbotron>
       </div>
