@@ -28,7 +28,7 @@ export default class BlogMaster extends Component {
           && 
           <div>
             {this.state.blogList.map((blog) => (
-              <BlogPost blog={blog}/>
+              <BlogPost blog={blog} key={blog.title.toString()}/>
             ))}
           </div>    
         )}

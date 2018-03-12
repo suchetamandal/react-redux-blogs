@@ -10,6 +10,7 @@ import BlogEdit from './components/BlogEdit';
 import BlogPost from './components/BlogPost';
 import reducers from './reducers';
 import Header from './components/Header';
+import PropTypes from 'prop-types'
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 ReactDOM.render(
@@ -18,7 +19,7 @@ ReactDOM.render(
   <div>
    <Header/>
     <Switch>
-      <Route path="/blogs/:title" component={BlogEdit}/>
+      <Route name="editBlog" path="/blogs/:blog" component={BlogEdit}/>
       <Route path="/" component={BlogMaster}/>
     </Switch>
   </div>  

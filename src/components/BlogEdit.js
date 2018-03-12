@@ -1,19 +1,35 @@
 import React, { Component } from 'react';
 import { Jumbotron,Button,ButtonToolbar, FormGroup,FormControl, ControlLabel} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-const blogData = require('./blogs.json');
+import PropTypes from 'prop-types'
 
 export default class BlogEdit extends Component {
     constructor(props) {
       super(props);
-      this.handleChange = this.handleChange.bind(this);
+      this.handleDescChange = this.handleDescChange.bind(this);
+      this.handleTitleChange = this.handleTitleChange.bind(this);
       this.state = {
-        desc: ''
+          title:'',
+          desc:''
       };
     }
+    componentDidMount(){
+      if(!this.props.blog){
+          const { blog } = this.props.match.params;
+          const parsed = JSON.parse(blog);
+          this.setState({
+            title :parsed.title,
+            desc : parsed.desc
+          });
+      } 
+  }
   
-    handleChange(e) {
-      this.setState({ desc: e.target.value });
+    handleDescChange(e) {
+      this.setState({ desc : e.target.value });
+    }
+
+    handleTitleChange(e) {
+      this.setState({ title : e.target.value });
     }
   
     render() {
@@ -21,15 +37,24 @@ export default class BlogEdit extends Component {
         <div>
           <Jumbotron>
         <form>
-            <ControlLabel>Testing Title of Blog</ControlLabel>
+            <ControlLabel>
             <FormControl
               type="text"
-              value= 'Ha ha ha '
+              value= {this.state.title}
+              placeholder="Edit Blog Title"
+              onChange={this.handleTitleChange}
+            />
+            </ControlLabel>
+            <FormControl
+              type="text"
+              value= {this.state.desc}
               placeholder="Edit Blog Description"
-              onChange={this.handleChange}
+              onChange={this.handleDescChange}
             />
           <ButtonToolbar>
-            <Button bsStyle="primary">Cancel</Button>   
+            <Link to="/">
+             <Button bsStyle="primary">Cancel</Button> 
+            </Link>   
             <Link to="/">
               <Button bsStyle="danger">Save</Button>
             </Link>  
