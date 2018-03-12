@@ -48,7 +48,7 @@ export default class BlogPost extends Component {
                     <p>{this.props.blog.desc}</p>
                     <ButtonToolbar>
                         <Link to={`/blogs/${JSON.stringify(this.props.blog)}`}>
-                            <Button bsStyle="primary" blog={this.props.blog}>Edit</Button>
+                            <Button bsStyle="success" blog={this.props.blog}>Edit</Button>
                         </Link>    
                         <Button bsStyle="danger" onClick={this.deleteConfirm}>Delete</Button>
                     </ButtonToolbar>

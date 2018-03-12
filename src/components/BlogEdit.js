@@ -53,10 +53,10 @@ export default class BlogEdit extends Component {
             />
           <ButtonToolbar>
             <Link to="/">
-             <Button bsStyle="primary">Cancel</Button> 
+             <Button bsStyle="danger">Cancel</Button> 
             </Link>   
             <Link to="/">
-              <Button bsStyle="danger">Save</Button>
+              <Button bsStyle="success">Save</Button>
             </Link>  
           </ButtonToolbar>
         </form>
